@@ -1,0 +1,337 @@
+/* Import Google Fonts, Inter  */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+}
+:root{
+    --color-primary: #5C56E1;
+    --color-primary-dark: #5b21b6;
+    --color-accent: #8B5CF6;
+    --color-card: #FFFFFF;
+    --color-input: #F1F1FF;
+    --color-text: #09090E;
+    --color-placeholder: #5C5A87;
+    --color-border: #D4D4ED;
+    --color-gradient: linear-gradient(135deg, #5C56E1, #8B5CF6);
+}
+.dark-theme{
+    --color-card: #1E293B;
+    --color-input: #141B2D;
+    --color-text: #F3F4F6;
+    --color-placeholder: #A3B6DC;
+    --color-border: #334155;
+  
+    background: var(--color-card);
+    background-image: radial-gradient(circle at 15% 50%, rgba(99, 102, 241, 0.15) 0%, transparent 35%), radial-gradient(circle at 85% 30%, rgba(139, 92, 246, 0.15) 0%, transparent 35%), radial-gradient(circle at 50% 80%, rgba(99, 102, 241, 0.1) 0%, transparent 40%);
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    min-height: 100vh;
+    color: var(--color-text);
+    background: linear-gradient(#E9E9FF, #C8C7FF);
+}
+.dark-theme .container{
+    border: 1px solid var(--color-border);
+}
+
+.container{
+    width: 900px;
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    background: var(--color-card);
+    box-shadow: 0px 10px 20px 0px(0, 0, 0, 0.1);
+}
+.container::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: var(--color-gradient);
+}
+/* Header CSS Here */
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 20px;
+}
+.header .logoWrapper{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+.header .logoWrapper .logo{
+    width: 55px;
+    height: 55px;
+    color: #fff;
+    font-size: 1.2rem;
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    background: var(--color-gradient);
+
+}
+.header .logoWrapper h1{
+    font-size: 1.9rem;
+    font-weight: 700;
+}
+.header .toggleTheme .theme-toggle{
+    width: 45px;
+    height: 45px;
+    font-size: 1rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--color-placeholder);
+    background: var(--color-input);
+    border: 1px solid var(--color-border);
+    transition: all 0.4s ease;
+}
+.header .toggleTheme .theme-toggle:hover{
+    color: var(--color-primary);
+    transform: translateY(-2px);
+    box-shadow: 0px 4px 6px -1px (0, 0, 0, 0.1);
+}
+
+/* Main Content */
+.main-content{
+    margin: 20px 0px 5px;
+}
+.main-content .prompt-container{
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+}
+.prompt-container .prompt-input{
+    width: 100%;
+    resize: vertical;
+    min-height: 120px;
+    padding: 20px;
+    border-radius: 15px;
+    line-height: 1.6;
+    color: var(--color-text);
+    background: var(--color-input);
+    border: 1px solid var(--color-border);
+    transition: all 0.3s ease;
+}
+.prompt-container .prompt-input::placeholder{
+    color: var(--color-placeholder);
+}
+.prompt-container .prompt-input:focus{
+    outline: none;
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 4px rgba(192, 92, 246, 0.15);
+
+}
+
+.prompt-container .prompt-btn{
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    border: none;
+    color: #fff;
+    font-size: .8rem;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    opacity: 0.8;
+    border-radius: 50%;
+    background: var(--color-gradient);
+    transform: all 0.3 ease;
+}
+.prompt-container .prompt-btn:hover{
+    opacity: 1;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) ;
+}
+
+.main-content .prompt-actions{
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 1.2fr 1fr 1.2fr 1fr;
+}
+.prompt-actions .select-wrapper{
+    position: relative;
+}
+.prompt-actions .select-wrapper::after{
+    content: "\f078";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    padding-left: 10px;
+    pointer-events: none;
+    transform: translateY(-50%);
+    background: var(--color-input);
+    color: var(--color-placeholder);
+
+}
+.prompt-actions :where(.custom-select, .generate-button){
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    background: var(--color-input);
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+.prompt-actions .custom-select{
+    width: 100%;
+    height: 100%;
+    outline: none;
+    appearance: none;
+    color: var(--color-text);
+}
+.prompt-actions .custom-select:is(:hover, :focus){
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px rgba(192, 92, 246, 0.15);
+}
+.prompt-actions .generate-button{
+    margin-left: auto;
+    padding: 12px 25px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-weight: 500;
+    justify-content: center;
+    background: var(--color-gradient);
+    color: #fff;
+    border: none;
+
+}
+.prompt-actions .generate-button:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(109, 40, 217, 0.153);
+}
+
+/* Result Image Gallery Grid */
+.result-gallery{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 30px;
+    margin-top: 20px;
+}
+.result-gallery .img-card{
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* aspect-ratio: 1; */
+    border-radius: 15px;
+    background: var(--color-input);
+    border: 1px solid var(--color-border);
+    transition: all 0.5s ease;
+}
+.result-gallery .img-card:not(.loading, .error):hover{
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+.result-gallery .img-card .result-img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.result-gallery .img-card:is(.loading, .error) :is(.result-image, .img-overlay){
+    display: none;
+}
+.result-gallery .img-card .img-overlay{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    padding: 20px;
+    display: flex;
+    opacity: 0;
+    pointer-events: none;
+    justify-content: flex-end;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    transition: all 0.3s ease;
+}
+.result-gallery .img-card:hover .img-overlay{
+    opacity: 1;
+    pointer-events: auto;
+}
+.img-card .img-overlay .img-download-btn{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    backdrop-filter: blur(5px);
+    background: rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+.img-card .img-overlay .img-download-btn:hover{
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.4)
+}
+/* Generating Mode Status */
+.loading{
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+}
+.result-gallery .img-card .status-container{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+.result-gallery .img-card:where(.loading, .error) .status-container{
+    display: flex;
+}
+.loading .status-container .status{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.result-gallery .img-card.loading .status-container i,
+.result-gallery .img-card.error .spinner {
+    display: none;
+}
+.result-gallery .img-card.error .status-container i{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: red;
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+.loading .status-container .spinner{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 2px solid var(--color-border);
+    border-top-color: var(--color-primary);
+    animation: spin 1s linear infinite;
+}
+@keyframes spin{
+    to{
+        transform: rotate(360deg);
+    }
+}
+.status-container .status .status-text{
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--color-placeholder);
+}
