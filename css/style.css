@@ -290,11 +290,11 @@ body{
     background: rgba(255, 255, 255, 0.4)
 }
 /* Generating Mode Status */
-.loading{
-    /* display: flex;
+/* .loading{
+    display: flex;
     align-items: center;
-    justify-content: center; */
-}
+    justify-content: center;
+} */
 .result-gallery .img-card .status-container{
     display: none;
     flex-direction: column;
