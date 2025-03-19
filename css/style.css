@@ -215,6 +215,9 @@ body{
     border: none;
 
 }
+.prompt-actions .generate-button:disabled{
+    opacity: 0.3;
+}
 .prompt-actions .generate-button:hover{
     transform: translateY(-2px);
     box-shadow: 0 4px 10px rgba(109, 40, 217, 0.153);
@@ -271,6 +274,9 @@ body{
 .img-card .img-overlay .img-download-btn{
     width: 45px;
     height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 50%;
     border: none;
     color: #fff;
@@ -334,4 +340,14 @@ body{
     text-align: center;
     font-size: 0.9rem;
     color: var(--color-placeholder);
+}
+/* Media Query for responsive device */
+@media(max-width: 768px){
+    .main-content .prompt-actions{
+        gap: 10px;
+        grid-template-columns: 1fr;
+    }
+    .prompt-actions .generate-button{
+        margin: 10px 0 0;
+    }
 }
