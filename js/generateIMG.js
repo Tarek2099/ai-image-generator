@@ -3,11 +3,14 @@ import getImgDimensions from "./getDimensions.js";
 import updateImages from "./updateImages.js";
 const imgCard = document.querySelector(".img-card");
 const generateButton = document.querySelector(".generate-button");
+const statusText = document.querySelector(".status-text");
+
 // Generate Image using AI;
 const generateImages = async (promptText, selectedModel, countedImg, aspectedRatio)=>{
     const Model_URL = `https://router.huggingface.co/hf-inference/models/${selectedModel}`;
     const {width, height} = getImgDimensions(aspectedRatio);
     generateButton.setAttribute("disabled", "true")
+
     // Create an image generation promises
     const imagePromises = Array.from({length: countedImg}, async(_, i)=>{
         try{
@@ -26,13 +29,14 @@ const generateImages = async (promptText, selectedModel, countedImg, aspectedRat
             });
             if(!response.ok) throw new Error((await response.json())?.error)
             const result = await response.blob();
+
         // Convert response to an image and update to updateImages
             updateImages(i, URL.createObjectURL(result))
         }catch(error){
             console.log(error);
            const getImg = document.getElementById(`img-card-${i}`);
             getImg.classList.replace("loading", "error");
-            document.querySelector(".status-text").textContent = "Generation failed! for more details in console"
+            statusText.innerHTML = "Generation failed! for more details in console"
         }
     })
     
