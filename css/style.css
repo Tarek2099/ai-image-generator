@@ -343,6 +343,9 @@ body{
 }
 /* Media Query for responsive device */
 @media(max-width: 768px){
+    .header .logoWrapper h1 {
+        font-size: 1rem;
+    }
     .main-content .prompt-actions{
         gap: 10px;
         grid-template-columns: 1fr;

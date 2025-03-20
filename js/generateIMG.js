@@ -36,6 +36,7 @@ const generateImages = async (promptText, selectedModel, countedImg, aspectedRat
             console.log(error);
            const getImg = document.getElementById(`img-card-${i}`);
             getImg.classList.replace("loading", "error");
+            
             statusText.innerHTML = "Generation failed! for more details in console"
         }
     })
